@@ -1,0 +1,118 @@
+.text-size {
+  font-size: 1.125rem;
+}
+
+.text-emphasys {
+  font-size: 1.33rem;
+}
+
+/*Duotones*/
+
+.duotone-blue-red {
+  filter: url("#blue-red");
+}
+
+.duotone-black-red {
+  filter: url("#black-red");
+}
+
+.duotone-spotify-blue {
+  filter: url("#spotify-blue");
+}
+
+.duotone-pink-blue {
+  filter: url("#pink-blue");
+}
+
+.duotone-black-white {
+  filter: url("#black-white");
+}
+
+.duotone-purple-pink {
+  filter: url("#purple-pink");
+}
+
+.duotone-bluish-canary {
+  filter: url("#bluish-canary");
+}
+
+.duotone-red-sunset {
+  filter: url("#red-sunset");
+}
+
+.duotone-pink-yellow {
+  filter: url("#pink-yellow");
+}
+
+.duotone-cyberpunk-a {
+  filter: url("#cyberpunk-a");
+}
+.duotone-cyberpunk-b {
+  filter: url("#cyberpunk-b");
+}
+.duotone-cyberpunk-c {
+  filter: url("#cyberpunk-c");
+}
+.duotone-cyberpunk-d {
+  filter: url("#cyberpunk-d");
+}
+.duotone-cyberpunk-e {
+  filter: url("#cyberpunk-e");
+}
+.duotone-cyberpunk-f {
+  filter: url("#cyberpunk-f");
+}
+.duotone-cyberpunk-g {
+  filter: url("#cyberpunk-g");
+}
+.duotone-cyberpunk-h {
+  filter: url("#cyberpunk-h");
+}
+.duotone-cyberpunk-i {
+  filter: url("#cyberpunk-i");
+}
+.duotone-cyberpunk-j {
+  filter: url("#cyberpunk-j");
+}
+.duotone-cyberpunk-k {
+  filter: url("#cyberpunk-k");
+}
+.duotone-cyberpunk-l {
+  filter: url("#cyberpunk-l");
+}
+.duotone-cyberpunk-m {
+  filter: url("#cyberpunk-m");
+}
+.duotone-cyberpunk-n {
+  filter: url("#cyberpunk-n");
+}
+.duotone-cyberpunk-o {
+  filter: url("#cyberpunk-o");
+}
+.duotone-cyberpunk-p {
+  filter: url("#cyberpunk-p");
+}
+.duotone-cyberpunk-q {
+  filter: url("#cyberpunk-q");
+}
+.duotone-cyberpunk-r {
+  filter: url("#cyberpunk-r");
+}
+.duotone-cyberpunk-s {
+  filter: url("#cyberpunk-s");
+}
+.duotone-cyberpunk-t {
+  filter: url("#cyberpunk-t");
+}
+.duotone-cyberpunk-u {
+  filter: url("#cyberpunk-u");
+}
+.duotone-cyberpunk-v {
+  filter: url("#cyberpunk-v");
+}
+.duotone-cyberpunk-x {
+  filter: url("#cyberpunk-x");
+}
+.duotone-cyberpunk-y {
+  filter: url("#cyberpunk-y");
+}
