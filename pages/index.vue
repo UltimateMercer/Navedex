@@ -57,13 +57,14 @@
               </svg>
             </div>
 
-            <form action="">
+            <form @submit.prevent="onLogin">
               <div class="form-group mb-4">
                 <label for="">E-mail</label>
                 <input
                   class="form-control form-control-lg form-dark border border-dark"
                   type="email"
                   placeholder="example@email.com"
+                  v-model="form.email"
                 />
               </div>
               <div class="form-group mb-4">
@@ -72,9 +73,12 @@
                   class="form-control form-control-lg form-dark border border-dark"
                   type="password"
                   placeholder="*******"
+                  v-model="form.password"
                 />
               </div>
-              <button class="btn btn-dark btn-block mt-4">Entrar</button>
+              <button type="submit" class="btn btn-dark btn-block mt-4">
+                Entrar
+              </button>
             </form>
           </div>
         </div>
@@ -84,5 +88,33 @@
 </template>
 
 <script>
-export default {}
+import { mapActions } from "vuex";
+export default {
+  data() {
+    return {
+      form: {
+        email: "",
+        password: "",
+      },
+    };
+  },
+
+  methods: {
+    ...mapActions(["login"]),
+
+    onLogin() {
+      const payload = {
+        ...this.form,
+      };
+
+      this.login(payload)
+        .then(() => {
+          this.$router.push({ name: "home" });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+};
 </script>
