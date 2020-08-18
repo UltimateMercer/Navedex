@@ -5,7 +5,7 @@
         class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12 offset-0 justify-content-center"
       >
         <div class="card card-plain card-flat border border-dark">
-          <div class="card-body p-4">
+          <div class="card-body p-5">
             <div class="text-center mt-4 mb-5">
               <svg
                 width="236"
@@ -61,7 +61,7 @@
               <div class="form-group mb-4">
                 <label for="">E-mail</label>
                 <input
-                  class="form-control form-control-lg form-dark border border-dark"
+                  class="form-control form-dark border border-dark"
                   type="email"
                   placeholder="example@email.com"
                   v-model="form.email"
@@ -70,7 +70,7 @@
               <div class="form-group mb-4">
                 <label for="">Senha</label>
                 <input
-                  class="form-control form-control-lg form-dark border border-dark"
+                  class="form-control form-dark border border-dark"
                   type="password"
                   placeholder="*******"
                   v-model="form.password"

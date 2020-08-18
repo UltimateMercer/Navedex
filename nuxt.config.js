@@ -30,11 +30,15 @@ export default {
    ** Global CSS
    */
   css: [],
+  loading: {
+    color: "#121212",
+    height: "8px",
+  },
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ["~/plugins/init.js"],
+  plugins: ["~/plugins/init.js", "~/plugins/vue-lazyload"],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -90,5 +94,7 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {},
+  build: {
+    transpile: ["vue-lazyload"],
+  },
 };

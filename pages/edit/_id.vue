@@ -1,111 +1,117 @@
 <template>
-  <div class="container-fluid">
-    <div
-      class="col-xl-8 offset-xl-2 col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-12"
-    >
-      <div class="card card-plain mb-5">
-        <div class="card-header">
-          <h2>
-            <nuxt-link to="/home" class="text-dark">
-              <font-awesome-icon :icon="['fas', 'angle-left']" size="lg" />
-            </nuxt-link>
-            <strong> Editar Naver </strong>
-          </h2>
-        </div>
-        <div class="card-body">
-          <form @submit.prevent="updateNaver">
-            <div class="row">
-              <div class="col-lg-6 col-md-6 col-12">
-                <div class="form-group mb-4">
-                  <label for="">Nome</label>
-                  <input
-                    class="form-control border border-dark form-dark"
-                    type="text"
-                    placeholder="Nome"
-                    v-model="form.name"
-                    required
-                  />
+  <div>
+    <Navbar />
+    <div class="container-fluid">
+      <div
+        class="col-xl-8 offset-xl-2 col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-12"
+      >
+        <div class="card card-plain mb-5">
+          <div class="card-header">
+            <h2>
+              <nuxt-link to="/home" class="text-dark">
+                <font-awesome-icon :icon="['fas', 'angle-left']" size="lg" />
+              </nuxt-link>
+              <strong> Editar Naver </strong>
+            </h2>
+          </div>
+          <div class="card-body">
+            <form @submit.prevent="updateNaver">
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                  <div class="form-group mb-4">
+                    <label for="">Nome</label>
+                    <input
+                      class="form-control border border-dark form-dark"
+                      type="text"
+                      placeholder="Nome"
+                      v-model="form.name"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                  <div class="form-group mb-4">
+                    <label for="">Cargo</label>
+                    <input
+                      class="form-control border border-dark form-dark"
+                      type="text"
+                      placeholder="Cargo"
+                      v-model="form.job_role"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                  <div class="form-group mb-4">
+                    <label for="">Data de nascimento</label>
+                    <input
+                      class="form-control border border-dark form-dark"
+                      type="date"
+                      placeholder="Data de nascimento"
+                      v-model="form.birthdate"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                  <div class="form-group mb-4">
+                    <label for="">Tempo de empresa</label>
+                    <input
+                      class="form-control border border-dark form-dark"
+                      type="date"
+                      placeholder="Tempo de empresa"
+                      v-model="form.admission_date"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                  <div class="form-group mb-4">
+                    <label for="">Projetos que participou</label>
+                    <input
+                      class="form-control border border-dark form-dark"
+                      type="text"
+                      placeholder="Projetos que participou"
+                      v-model="form.project"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                  <div class="form-group mb-4">
+                    <label for="">URL da foto do Naver</label>
+                    <input
+                      class="form-control border border-dark form-dark"
+                      type="text"
+                      placeholder="URL da foto do Naver"
+                      v-model="form.url"
+                      required
+                    />
+                  </div>
                 </div>
               </div>
-              <div class="col-lg-6 col-md-6 col-12">
-                <div class="form-group mb-4">
-                  <label for="">Cargo</label>
-                  <input
-                    class="form-control border border-dark form-dark"
-                    type="text"
-                    placeholder="Cargo"
-                    v-model="form.job_role"
-                    required
-                  />
-                </div>
+              <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-dark">Editar</button>
               </div>
-              <div class="col-lg-6 col-md-6 col-12">
-                <div class="form-group mb-4">
-                  <label for="">Data de nascimento</label>
-                  <input
-                    class="form-control border border-dark form-dark"
-                    type="date"
-                    placeholder="Data de nascimento"
-                    v-model="form.birthdate"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-6 col-12">
-                <div class="form-group mb-4">
-                  <label for="">Tempo de empresa</label>
-                  <input
-                    class="form-control border border-dark form-dark"
-                    type="date"
-                    placeholder="Tempo de empresa"
-                    v-model="form.admission_date"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-6 col-12">
-                <div class="form-group mb-4">
-                  <label for="">Projetos que participou</label>
-                  <input
-                    class="form-control border border-dark form-dark"
-                    type="text"
-                    placeholder="Projetos que participou"
-                    v-model="form.project"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-6 col-12">
-                <div class="form-group mb-4">
-                  <label for="">URL da foto do Naver</label>
-                  <input
-                    class="form-control border border-dark form-dark"
-                    type="text"
-                    placeholder="URL da foto do Naver"
-                    v-model="form.url"
-                    required
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="d-flex justify-content-end">
-              <button type="submit" class="btn btn-dark">Editar</button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="modal" :style="isCreated ? 'display: block' : 'display: none'">
-      <div class="card card-flat modal-body">
-        <div class="card-body py-4 px-5">
-          <nuxt-link to="/home" class="btn btn-light float-right">
-            <font-awesome-icon :icon="['fas', 'times']" size="lg" />
-          </nuxt-link>
-          <h2 class="mt-2 mb-3"><strong> Naver editado!</strong></h2>
-          <h5 class="mb-4" style="font-weight: 400;">
-            Naver editado com sucesso!
-          </h5>
+      <div
+        class="modal"
+        :style="isCreated ? 'display: block' : 'display: none'"
+      >
+        <div class="card card-flat modal-body">
+          <div class="card-body py-4 px-5">
+            <nuxt-link to="/home" class="btn btn-light float-right">
+              <font-awesome-icon :icon="['fas', 'times']" size="lg" />
+            </nuxt-link>
+            <h2 class="mt-2 mb-3"><strong> Naver editado!</strong></h2>
+            <h5 class="mb-4" style="font-weight: 400;">
+              Naver editado com sucesso!
+            </h5>
+          </div>
         </div>
       </div>
     </div>
@@ -114,9 +120,12 @@
 <script>
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import Navbar from "@/components/Navbar";
 
 export default {
   middleware: "auth",
+
+  components: { Navbar },
 
   data() {
     return {

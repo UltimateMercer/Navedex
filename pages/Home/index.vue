@@ -1,5 +1,7 @@
 <template>
   <div>
+    <Navbar />
+
     <div class="container-fluid">
       <div class="mx-lg-3 mx-md-2 mx-1">
         <div class="row">
@@ -13,58 +15,50 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row mb-4">
           <div
             v-for="naver in navers"
             :key="naver.id"
             class="col-lg-3 col-md-4 col-6"
           >
-            <NaverCards :naver="naver" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="card card-horizontal-post mb-5" style="min-height: 500px;">
-        <div class="row">
-          <div class="col-lg-6 col-12">
             <div
-              class="card-horizontal-post-avatar"
-              style="
-                background-image: url('https://i.imgur.com/diuV6oy.jpg');
-                min-height: 500px;
-              "
-            ></div>
-          </div>
-          <div class="col-lg-6 col-12">
-            <div class="card-body">
-              <button class="btn btn-light float-right">
-                <font-awesome-icon :icon="['fas', 'times']" size="lg" />
-              </button>
-              <h4 class="mt-2"><strong>Goku</strong></h4>
-              <h5 class="mb-3" style="font-weight: 400;">
-                Front-end developer
-              </h5>
-              <h4 class=""><strong>Idade</strong></h4>
-              <h5 class="mb-3" style="font-weight: 400;">
-                38
-              </h5>
-              <h4 class=""><strong>Tempo de empresa</strong></h4>
-              <h5 class="mb-3" style="font-weight: 400;">
-                Front-end developer
-              </h5>
-              <h4 class=""><strong>Projeto que participou</strong></h4>
-              <h5 class="mb-3" style="font-weight: 400;">
-                Front-end developer
-              </h5>
-              <div class="mt-5">
+              v-lazy-container="{ selector: 'img' }"
+              class="card card-flat card-plain mb-3"
+            >
+              <img
+                :data-src="naver.url"
+                class="card-img-top card-img-fit"
+                :alt="naver.name"
+              />
+              <div class="my-3">
+                <a
+                  href=""
+                  @click="showNaverInfo(naver, $event.target)"
+                  class="text-dark"
+                >
+                  <h4 class="mb-1">
+                    <strong>{{ naver.name }}</strong>
+                  </h4>
+                </a>
+                <h5 class="mb-3" style="font-weight: 400;">
+                  {{ naver.job_role }}
+                </h5>
+                <button
+                  @click="showNaverInfo(naver, $event.target)"
+                  class="btn btn-light"
+                >
+                  <font-awesome-icon :icon="['fas', 'info']" size="lg" />
+                </button>
                 <button class="btn btn-light">
                   <font-awesome-icon :icon="['fas', 'trash']" size="lg" />
                 </button>
-                <button class="btn btn-light">
+                <nuxt-link
+                  :to="`/edit/${naver.id}`"
+                  class="btn btn-light"
+                  title="Editar naver"
+                >
                   <font-awesome-icon :icon="['fas', 'pen']" size="lg" />
-                </button>
+                </nuxt-link>
               </div>
             </div>
           </div>
@@ -72,48 +66,82 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="col-md-8 offset-md-2 col-12">
-        <div class="card card-flat mb-5">
-          <div class="card-body py-4 px-5">
-            <button class="btn btn-light float-right">
-              <font-awesome-icon :icon="['fas', 'times']" size="lg" />
-            </button>
-            <h2 class="mt-2 mb-3"><strong> Naver criado!</strong></h2>
-            <h5 class="mb-4" style="font-weight: 400;">
-              Naver criado com sucesso!
-            </h5>
-          </div>
-        </div>
-        <div class="card card-flat mb-5">
-          <div class="card-body py-4 px-5">
-            <button class="btn btn-light float-right">
-              <font-awesome-icon :icon="['fas', 'times']" size="lg" />
-            </button>
-            <h2 class="mt-2 mb-3">
-              <strong> Naver atualizado! </strong>
-            </h2>
-            <h5 class="mb-4" style="font-weight: 400;">
-              Naver atualizado com sucesso!
-            </h5>
-          </div>
-        </div>
-      </div>
+    <div
+      v-if="showNaver.content"
+      class="show-info"
+      :style="isOpen ? 'display: block' : 'display: none'"
+    >
+      <ShowNaver :naver="showNaver.content" @close-modal="resetNaver()" />
     </div>
   </div>
 </template>
 <script>
-import NaverCards from "@/components/NaverCards";
+import Navbar from "@/components/Navbar";
+import ShowNaver from "@/components/ShowNaver";
 
 export default {
   middleware: "auth",
 
-  components: { NaverCards },
+  components: { Navbar, ShowNaver },
 
   async asyncData({ $axios }) {
     const navers = await $axios.$get("/navers");
     console.log(navers);
     return { navers };
   },
+
+  data() {
+    return {
+      isOpen: false,
+      showNaver: {
+        id: "showNaver",
+        content: null,
+      },
+    };
+  },
+
+  methods: {
+    showNaverInfo(naver, button) {
+      this.showNaver.content = naver;
+      this.isOpen = !this.isOpen;
+    },
+    resetNaver() {
+      debugger;
+      this.showNaver.content = null;
+      this.isOpen = false;
+    },
+  },
 };
 </script>
+
+<style lang="scss">
+.show-info {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+
+  &-body {
+    width: 75%;
+    margin: 5% auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .show-info {
+    &-body {
+      width: 90%;
+    }
+  }
+}
+
+.card-img-fit {
+  height: 325px !important;
+}
+</style>
