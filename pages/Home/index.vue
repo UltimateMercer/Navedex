@@ -25,14 +25,17 @@
               v-lazy-container="{ selector: 'img' }"
               class="card card-flat card-plain mb-3"
             >
-              <img
-                :data-src="naver.url"
-                class="card-img-top card-img-fit"
-                :alt="naver.name"
-              />
+              <a href="#" @click="showNaverInfo(naver, $event.target)">
+                <img
+                  :data-src="naver.url"
+                  class="card-img-top card-img-fit"
+                  :alt="naver.name"
+                />
+              </a>
+
               <div class="my-3">
                 <a
-                  href=""
+                  href="#"
                   @click="showNaverInfo(naver, $event.target)"
                   class="text-dark"
                 >
@@ -46,12 +49,17 @@
                 <button
                   @click="showNaverInfo(naver, $event.target)"
                   class="btn btn-light"
+                  title="Exibir naver"
                 >
                   <font-awesome-icon :icon="['fas', 'info']" size="lg" />
                 </button>
-                <button class="btn btn-light">
+                <nuxt-link
+                  :to="`/delete/${naver.id}`"
+                  class="btn btn-light"
+                  title="Deletar naver"
+                >
                   <font-awesome-icon :icon="['fas', 'trash']" size="lg" />
-                </button>
+                </nuxt-link>
                 <nuxt-link
                   :to="`/edit/${naver.id}`"
                   class="btn btn-light"
