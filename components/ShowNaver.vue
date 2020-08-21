@@ -40,9 +40,13 @@
             {{ naver.project }}
           </h5>
           <div class="mt-5">
-            <button class="btn btn-light">
+            <nuxt-link
+              :to="`/delete/${naver.id}`"
+              class="btn btn-light"
+              title="Deletar naver"
+            >
               <font-awesome-icon :icon="['fas', 'trash']" size="lg" />
-            </button>
+            </nuxt-link>
             <nuxt-link
               :to="`/edit/${naver.id}`"
               class="btn btn-light"
