@@ -1,20 +1,23 @@
-# navedex
+## **Navedex - Front-end challenge**
 
-## Build Setup
+Projeto desenvolvido utilizando:
+
+- Vuejs/NuxtJs
+- Bootstrap
+- Axios
+
+Escolhi utilizar o VueJS e o Nuxt, pois já venho aprendendo e trabalhando em alguns projeto a utilização dos mesmos. A escolha pelo Axios foi também pela familiaridade com a utilização do mesmo.
+
+### Como utilizar
+
+Os comandos utilizados para rodar o projeto:
 
 ```bash
-# install dependencies
 $ npm install
 
-# serve with hot reload at localhost:3000
 $ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+### Dificuldades encontradas
+
+Para utilizar a autenticação com NuxtJS tive que definir o modo de renderização para SPA(_"Single Page Application"_), me permitindo utilizar o sistema de autenticação e utilizar _localStorage_ para persistir no navegador do usuário.
