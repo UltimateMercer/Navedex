@@ -149,7 +149,7 @@ export default {
         !this.project ||
         !this.url
       ) {
-        alert("Alerta");
+        return;
       }
 
       const formatBirthdate = format(new Date(this.birthdate), "P", {
@@ -159,10 +159,6 @@ export default {
         locale: ptBR,
       });
 
-      console.log(formatBirthdate, formatAdmission_date);
-
-      debugger;
-
       const payload = {
         name: this.name,
         job_role: this.job_role,
@@ -171,8 +167,6 @@ export default {
         project: this.project,
         url: this.url,
       };
-
-      console.log(payload);
 
       this.$axios
         .$post("/navers", payload)

@@ -25,7 +25,7 @@
               v-lazy-container="{ selector: 'img' }"
               class="card card-flat card-plain mb-3"
             >
-              <a href="#" @click="showNaverInfo(naver, $event.target)">
+              <a href="#" @click="showNaverInfo(naver)">
                 <img
                   :data-src="naver.url"
                   class="card-img-top card-img-fit"
@@ -34,11 +34,7 @@
               </a>
 
               <div class="my-3">
-                <a
-                  href="#"
-                  @click="showNaverInfo(naver, $event.target)"
-                  class="text-dark"
-                >
+                <a href="#" @click="showNaverInfo(naver)" class="text-dark">
                   <h4 class="mb-1">
                     <strong>{{ naver.name }}</strong>
                   </h4>
@@ -47,7 +43,7 @@
                   {{ naver.job_role }}
                 </h5>
                 <button
-                  @click="showNaverInfo(naver, $event.target)"
+                  @click="showNaverInfo(naver)"
                   class="btn btn-light"
                   title="Exibir naver"
                 >

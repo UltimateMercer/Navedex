@@ -179,7 +179,7 @@ export default {
         !this.form.project ||
         !this.form.url
       ) {
-        alert("Alerta");
+        return;
       }
 
       const formatBirthdate = format(new Date(this.form.birthdate), "P", {
@@ -201,8 +201,6 @@ export default {
         project: this.form.project,
         url: this.form.url,
       };
-
-      console.log(payload);
 
       this.$axios
         .$put("/navers/" + this.$route.params.id, payload)
