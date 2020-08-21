@@ -6,7 +6,7 @@ Projeto desenvolvido utilizando:
 - Bootstrap
 - Axios
 
-Escolhi utilizar o VueJS e o Nuxt, pois já venho aprendendo e trabalhando em alguns projeto a utilização dos mesmos. A escolha pelo Axios foi também pela familiaridade com a utilização do mesmo.
+Escolhi utilizar o VueJS e o Nuxt, pois já venho aprendendo e trabalhando em alguns projeto a utilização dos mesmos. A escolha pelo Axios foi também pela familiaridade com a utilização do mesmo em projetos recentes.
 
 ### Como utilizar
 
